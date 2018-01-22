@@ -1,0 +1,32 @@
+--------------------------------------------------------
+--  File created - пятница-июня-03-2016   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table PERSONAL_DATA_PATIENT
+--------------------------------------------------------
+
+  CREATE TABLE "INV_PROXY"."PERSONAL_DATA_PATIENT" 
+   (	"PERSONAL_DATA_PATIENTS_ID" NUMBER(19,0), 
+	"PATIENT_ID" NUMBER(19,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+REM INSERTING into INV_PROXY.PERSONAL_DATA_PATIENT
+SET DEFINE OFF;
+--------------------------------------------------------
+--  Constraints for Table PERSONAL_DATA_PATIENT
+--------------------------------------------------------
+
+  ALTER TABLE "INV_PROXY"."PERSONAL_DATA_PATIENT" MODIFY ("PERSONAL_DATA_PATIENTS_ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Ref Constraints for Table PERSONAL_DATA_PATIENT
+--------------------------------------------------------
+
+  ALTER TABLE "INV_PROXY"."PERSONAL_DATA_PATIENT" ADD CONSTRAINT "FK_AJ301LTWT3NVC97XVOLKCSA" FOREIGN KEY ("PERSONAL_DATA_PATIENTS_ID")
+	  REFERENCES "INV_PROXY"."CORE_PERSONAL_DATA" ("ID") ENABLE;
+  ALTER TABLE "INV_PROXY"."PERSONAL_DATA_PATIENT" ADD CONSTRAINT "FK_CGISXX91TT0TJRIQWY5AG9ME0" FOREIGN KEY ("PATIENT_ID")
+	  REFERENCES "INV_PROXY"."CORE_PATIENT" ("ID") ENABLE;
